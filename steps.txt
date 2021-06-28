@@ -1,0 +1,3 @@
+1. Создание docker образа и запуск контейнера из него с помощью Docker Compose  
+В контейнере работает Mysql база данных с данными из конфигурационного файла 
+App42PaaS-Java-MySQL-Sample/WebContent/Config.properties
