@@ -1,34 +1,35 @@
-#https://devops4solutions.com/deploy-a-tomcat-application-using-docker-compose/
 version: '3.3'
+
 services:
-  db:
-    image: mysql:5.7
-    restart: always
+
+
+  mysql-container:
+    image: mariadb:10.1
+    #restart: always
     environment:
-      MYSQL_DATABASE: 'dd'
+      MYSQL_DATABASE: dd
       # So you don't have to use root, but you can if you like
-      MYSQL_USER: 'tuser1'
+      MYSQL_USER: tuser17
       # You can use whatever password you like
-      MYSQL_PASSWORD: 'tuser1!7D'
+      MYSQL_PASSWORD: VLpk8QtBsQz5vtk
       # Password for root access
-      MYSQL_ROOT_PASSWORD: 'VLpk8QtBsQz5vtk'
+      MYSQL_ROOT_PASSWORD: tuser1!7D
     ports:
       # <Port exposed> : < MySQL Port running inside container>
-      - '8514:8514'
-    expose:
+      - "3306:3306"
+    #expose:
       # Opens port 3306 on the container
-      - '8514'
+      #- '3306'
       # Where our data will be persisted
     volumes:
-      - /var/lib/mysql
-  
-  web:
-    depends_on: 
-      - db
-    image: tomcat
-    ports:
-      - "8087:8087"
+      - /var/lib/mysql/
 
-# Names our volume
-#volumes:
-#  db-data:
+  tomcat-container:
+    build:
+      context: .
+    volumes:
+      - .:/tmp/
+    depends_on:
+      - mysql-container
+    ports:
+      - "8080:8080"
