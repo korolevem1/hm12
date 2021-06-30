@@ -1,3 +1,46 @@
 1. Создание docker образа и запуск контейнера из него с помощью Docker Compose  
 В контейнере работает Mysql база данных с данными из конфигурационного файла 
 App42PaaS-Java-MySQL-Sample/WebContent/Config.properties
+
+
+apt install docker-compose docker.io
+
+mkdir /root/hm12 & touch docker-compose.yml
+docker-compose up -d 
+
+https://github.com/shephertz/App42PaaS-Java-MySQL-Sample.git
+
+
+################
+### for debuging
+################
+docker stop $(docker ps -a -q)
+docker container prune -f
+docker image rm $(docker images -a -q)
+rm -rf docker1
+git clone https://github.com/korolevem1/docker12.git
+cd /root/docker1
+#docker build -t test1 .
+#docker build -t maven .
+docker build -t  mitomcat .
+
+
+
+#docker run -d test1
+#docker run -d maven
+docker run --name mitomcat -d -p 8080:8080 mitomcat
+
+
+docker ps -a
+
+cd ..
+################
+
+################
+####Config Properties
+################
+app42.paas.db.username = "tuser17"
+app42.paas.db.port = "8878"
+app42.paas.db.password = "VLpk8QtBsQz5vtk"
+app42.paas.db.ip = "mysql-container"
+app42.paas.db.name = "dd"

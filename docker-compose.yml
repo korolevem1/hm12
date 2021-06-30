@@ -7,11 +7,11 @@ services:
     environment:
       MYSQL_DATABASE: 'dd'
       # So you don't have to use root, but you can if you like
-      MYSQL_USER: 'acp4pogynvaeidfj'
+      MYSQL_USER: 'tuser1'
       # You can use whatever password you like
-      MYSQL_PASSWORD: 'jc31d2qyy7h9jv5jn1u9uosjksxzaizw'
+      MYSQL_PASSWORD: 'tuser1!7D'
       # Password for root access
-      MYSQL_ROOT_PASSWORD: '!qaz@wsx'
+      MYSQL_ROOT_PASSWORD: 'VLpk8QtBsQz5vtk'
     ports:
       # <Port exposed> : < MySQL Port running inside container>
       - '8514:8514'
