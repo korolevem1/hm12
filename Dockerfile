@@ -1,4 +1,3 @@
-
 ### get file from git
 
 FROM ubuntu:16.04 as gitfile

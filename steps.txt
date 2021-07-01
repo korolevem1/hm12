@@ -51,3 +51,13 @@ app42.paas.db.name = "dd"
 ################
 
 https://hard-skills.ru/notes/mysql-install-docker-compose/
+
+
+######3
+## for debauging
+####
+
+
+docker container stop $(docker ps -a -q)
+docker container rm $(docker ps -a -q) -f
+docker image rm $(docker images -a -q) -f
